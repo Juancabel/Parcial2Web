@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProfesorEntity } from './profesor.entity/profesor.entity';
@@ -11,9 +11,9 @@ export class ProfesorService {
   ) {}
 
   async crearProfesor(profesor: ProfesorEntity): Promise<ProfesorEntity> {
-    if (profesor.extension.toString.length == 5) {
+    if (profesor.extension.toString().length == 5) {
       return await this.profesorRepository.save(profesor);
     }
-    throw new Error('No cumple');
+    throw new BadRequestException('No cumple');
   }
 }

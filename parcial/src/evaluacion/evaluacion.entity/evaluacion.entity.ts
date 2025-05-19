@@ -10,5 +10,5 @@ export class EvaluacionEntity {
   proyecto: ProyectoEntity;
 
   @ManyToOne(() => ProfesorEntity, (profesor) => profesor.evaluaciones)
-  profesor: ProyectoEntity;
+  profesor: ProfesorEntity;
 }

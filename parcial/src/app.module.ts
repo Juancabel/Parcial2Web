@@ -10,6 +10,7 @@ import { EstudianteEntity } from './estudiante/estudiante.entity/estudiante.enti
 import { ProfesorEntity } from './profesor/profesor.entity/profesor.entity';
 import { ProyectoEntity } from './proyecto/proyecto.entity/proyecto.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProfesorEvaluacionModule } from './profesor-evaluacion/profesor-evaluacion.module';
 
 @Module({
   imports: [
@@ -22,8 +23,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'postgres',
-      database: 'museum',
+      password: 'password',
+      database: 'parcial',
       entities: [
         EvaluacionEntity,
         ProyectoEntity,
@@ -33,6 +34,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       dropSchema: true,
       synchronize: true,
     }),
+    ProfesorEvaluacionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { EstudianteEntity } from './estudiante.entity/estudiante.entity';
@@ -16,14 +16,14 @@ export class EstudianteService {
     if (estudiante.promedio > 3.2 && estudiante.semestre >= 4) {
       return await this.estudianteRepository.save(estudiante);
     }
-    throw new Error('No cumple');
+    throw new BadRequestException(BadRequestException);
   }
   async eliminarEstudiante(id: string) {
     const estudiante = await this.estudianteRepository.findOne({
       where: { id },
     });
     if (!estudiante) {
-      throw new Error(`Estudiante con ID ${id} no encontrado`);
+      throw new BadRequestException(BadRequestException);
     }
     await this.estudianteRepository.remove(estudiante);
   }
