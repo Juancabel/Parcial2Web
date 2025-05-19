@@ -66,7 +66,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Estudiante - Success (Assuming by ID)",
+					"name": "Delete Estudiante - Success",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -86,7 +86,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Estudiante",
+					"name": "Delete Estudiante - Fail",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -167,7 +167,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Profesor - Success (Assuming by ID)",
+					"name": "Delete Profesor - Success",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -268,7 +268,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Proyecto - Success (Assuming by ID)",
+					"name": "Delete Proyecto - Success",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -369,7 +369,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Evaluacion - Success (Assuming by ID)",
+					"name": "Delete Evaluacion - Success",
 					"request": {
 						"method": "DELETE",
 						"header": [],
