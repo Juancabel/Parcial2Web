@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "3a3680d3-6396-4269-ab3e-4b670a44d22d",
+		"name": "Pruebas Parcial 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32520071"
+	},
+	"item": [
+		{
+			"name": "Estudiante",
+			"item": [
+				{
+					"name": "Create Estudiante - Success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"John Doe\",\n    \"cedula\": 12345,\n    \"semestre\": 3,\n    \"programa\": \"Software Engineering\",\n    \"promedio\": 4.2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/estudiante",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"estudiante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Estudiante - Fail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": 123,\n    \"cedula\": \"abc\",\n    \"semestre\": \"three\",\n    \"programa\": null,\n    \"promedio\": \"high\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/estudiantes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Estudiante - Success (Assuming by ID)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/estudiantes/ID_Valido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"estudiantes",
+								"ID_Valido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Estudiante",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/estudiantes/ID_Invalido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"estudiantes",
+								"ID_Invalido"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profesor",
+			"item": [
+				{
+					"name": "Create Profesor - Success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Jane Smith\",\n    \"cedula\": 67890,\n    \"departamento\": \"Computer Science\",\n    \"extension\": 123,\n    \"esparevaluado\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/profesores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Profesor - Fail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": 123,\n    \"cedula\": \"abc\",\n    \"departamento\": null,\n    \"extension\": \"wrong\",\n    \"esparevaluado\": \"maybe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/profesores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profesor - Success (Assuming by ID)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/profesores/SOME_VALID_ID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profesores",
+								"SOME_VALID_ID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profesor - Fail",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/profesores/INVALID_ID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profesores",
+								"INVALID_ID"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Proyecto",
+			"item": [
+				{
+					"name": "Create Proyecto - Success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"AI for Education\",\n    \"area\": \"Artificial Intelligence\",\n    \"presupuesto\": 50000,\n    \"notafinal\": null,\n    \"estado\": 1,\n    \"fechainicio\": \"2025-01-15\",\n    \"fechafin\": \"2025-12-30\",\n    \"estudianteId\": \"SOME_ESTUDIANT_ID\",\n    \"profesorId\": \"SOME_PROFESOR_ID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/proyectos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Proyecto - Fail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": 123,\n    \"area\": null,\n    \"presupuesto\": \"many\",\n    \"notafinal\": \"A\",\n    \"estado\": \"open\",\n    \"fechainicio\": \"yesterday\",\n    \"fechafin\": null,\n    \"estudianteId\": \"wrong\",\n    \"profesorId\": 987\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/proyectos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Proyecto - Success (Assuming by ID)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/proyectos/ID_Valido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proyectos",
+								"ID_Valido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Proyecto - Fail",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/proyectos/ID_Invalido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proyectos",
+								"ID_Invalido"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evaluacion",
+			"item": [
+				{
+					"name": "Create Evaluacion - Success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"proyectoId\": \"SOME_PROJECT_ID\",\n    \"profesorId\": \"SOME_PROFESOR_ID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/evaluaciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"evaluaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Evaluacion - Fail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"proyectoId\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/evaluaciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"evaluaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Evaluacion - Success (Assuming by ID)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/evaluaciones/ID_Valido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"evaluaciones",
+								"ID_Valido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Evaluacion - Fail",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/evaluaciones/ID_Invalido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"evaluaciones",
+								"ID_Invalido"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
